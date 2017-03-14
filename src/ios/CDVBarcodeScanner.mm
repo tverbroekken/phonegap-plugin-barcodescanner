@@ -1113,7 +1113,7 @@ parentViewController:(UIViewController*)parentViewController
                                        RETICLE_OFFSET,
                                        RETICLE_OFFSET,
                                        physicalWidth-2*RETICLE_OFFSET,
-                                       physicalHeight-2*RETICLE_OFFSET
+                                       physicalWidth-2*RETICLE_OFFSET
                                        )
                             );
     }
