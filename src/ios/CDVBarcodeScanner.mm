@@ -1087,10 +1087,10 @@ parentViewController:(UIViewController*)parentViewController
 	CGFloat scale = [UIScreen mainScreen].scale;
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 
-	CGFloat physicalWidth = screenRect.size.width * scale;
-	CGFloat physicalHeight = screenRect.size.height * scale;
+	CGFloat physicalWidth = screenRect.size.width * (scale/100.0f);
+	CGFloat physicalHeight = screenRect.size.height * (scale/100.0f);
 
-    UIGraphicsBeginImageContext(CGSizeMake(physicalWidth, physicalHeight));
+    UIGraphicsBeginImageContext(CGSizeMake(physicalWidth - RECTICLE_OFFSET, physicalHeight - RECTICLE_OFFSET));
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     if (self.processor.is1D) {
@@ -1112,8 +1112,8 @@ parentViewController:(UIViewController*)parentViewController
                             CGRectMake(
                                        RETICLE_OFFSET,
                                        RETICLE_OFFSET,
-                                       physicalWidth-2*RETICLE_OFFSET,
-                                       physicalWidth-2*RETICLE_OFFSET
+                                       physicalHeight-2*RETICLE_OFFSET,
+                                       physicalHeight-2*RETICLE_OFFSET
                                        )
                             );
     }
