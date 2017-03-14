@@ -1073,9 +1073,9 @@ parentViewController:(UIViewController*)parentViewController
 
 //--------------------------------------------------------------------------
 
-#define RETICLE_SIZE    1000.0f
+#define RETICLE_SIZE    500.0f
 #define RETICLE_WIDTH    10.0f
-#define RETICLE_OFFSET    0.4f
+#define RETICLE_OFFSET   60.0f
 #define RETICLE_ALPHA     0.4f
 
 //-------------------------------------------------------------------------
@@ -1083,14 +1083,14 @@ parentViewController:(UIViewController*)parentViewController
 //-------------------------------------------------------------------------
 - (UIImage*)buildReticleImage {
     UIImage* result;
-	
+
 	CGFloat scale = [UIScreen mainScreen].scale;
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 
 	CGFloat physicalWidth = screenRect.size.width * (scale/100.0f);
 	CGFloat physicalHeight = screenRect.size.height * (scale/100.0f);
 
-    UIGraphicsBeginImageContext(CGSizeMake(physicalWidth - RETICLE_OFFSET, physicalHeight - RETICLE_OFFSET));
+	UIGraphicsBeginImageContext(CGSizeMake(physicalWidth, physicalHeight));
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     if (self.processor.is1D) {
@@ -1100,7 +1100,7 @@ parentViewController:(UIViewController*)parentViewController
         CGContextBeginPath(context);
         CGFloat lineOffset = (CGFloat) (RETICLE_OFFSET+(0.5*RETICLE_WIDTH));
         CGContextMoveToPoint(context, lineOffset, physicalHeight/2);
-        CGContextAddLineToPoint(context, physicalWidth-lineOffset, (CGFloat) (0.5*physicalWidth));
+        CGContextAddLineToPoint(context, physicalHeight-lineOffset, (CGFloat) (0.5*physicalHeight));
         CGContextStrokePath(context);
     }
 
