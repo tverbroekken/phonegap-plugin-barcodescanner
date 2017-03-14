@@ -1090,7 +1090,7 @@ parentViewController:(UIViewController*)parentViewController
 	CGFloat physicalWidth = screenRect.size.width * (scale/100.0f);
 	CGFloat physicalHeight = screenRect.size.height * (scale/100.0f);
 
-    UIGraphicsBeginImageContext(CGSizeMake(physicalWidth - RECTICLE_OFFSET, physicalHeight - RECTICLE_OFFSET));
+    UIGraphicsBeginImageContext(CGSizeMake(physicalWidth - RETICLE_OFFSET, physicalHeight - RETICLE_OFFSET));
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     if (self.processor.is1D) {
