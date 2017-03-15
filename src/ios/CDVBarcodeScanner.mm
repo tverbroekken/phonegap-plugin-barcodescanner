@@ -1106,8 +1106,8 @@ parentViewController:(UIViewController*)parentViewController
         CGContextSetLineWidth(context, RETICLE_WIDTH);
         CGContextBeginPath(context);
         CGFloat lineOffset = (CGFloat) (RETICLE_OFFSET+(0.5*RETICLE_WIDTH));
-        CGContextMoveToPoint(context, lineOffset, physicalHeight/2);
-        CGContextAddLineToPoint(context, physicalHeight-lineOffset, (CGFloat) (0.5*physicalHeight));
+        CGContextMoveToPoint(context, 0.0, physicalHeight/2);
+        CGContextAddLineToPoint(context, physicalHeight, (CGFloat) (0.5*physicalHeight));
         CGContextStrokePath(context);
     }
 
@@ -1129,10 +1129,10 @@ parentViewController:(UIViewController*)parentViewController
 							   // physicalHeight
 							   // );
 
-        UIColor* color = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:RETICLE_ALPHA];
-        CGContextSetStrokeColorWithColor(context, color.CGColor);
-        CGContextSetLineWidth(context, RETICLE_WIDTH);
-        CGContextStrokeRect(context, greenRect);
+        // UIColor* color = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:RETICLE_ALPHA];
+        // CGContextSetStrokeColorWithColor(context, color.CGColor);
+        // CGContextSetLineWidth(context, RETICLE_WIDTH);
+        // CGContextStrokeRect(context, greenRect);
     }
 
     result = UIGraphicsGetImageFromCurrentImageContext();
