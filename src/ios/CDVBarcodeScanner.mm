@@ -1087,10 +1087,10 @@ parentViewController:(UIViewController*)parentViewController
 	CGFloat scale = [UIScreen mainScreen].scale;
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 
-	CGFloat physicalWidth = screenRect.size.width * (scale/100.0f);
-	CGFloat physicalHeight = screenRect.size.height * (scale/100.0f);
+	CGFloat physicalWidth = screenRect.size.width;
+	CGFloat physicalHeight = screenRect.size.height;
 
-	UIGraphicsBeginImageContext(CGSizeMake(RETICLE_SIZE, RETICLE_SIZE));
+	UIGraphicsBeginImageContext(CGSizeMake(physicalWidth, physicalHeight));
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     if (self.processor.is1D) {
@@ -1099,8 +1099,8 @@ parentViewController:(UIViewController*)parentViewController
         CGContextSetLineWidth(context, RETICLE_WIDTH);
         CGContextBeginPath(context);
         CGFloat lineOffset = (CGFloat) (RETICLE_OFFSET+(0.5*RETICLE_WIDTH));
-        CGContextMoveToPoint(context, lineOffset, RETICLE_SIZE/2);
-        CGContextAddLineToPoint(context, RETICLE_SIZE-lineOffset, (CGFloat) (0.5*RETICLE_SIZE));
+        CGContextMoveToPoint(context, lineOffset, physicalHeight/2);
+        CGContextAddLineToPoint(context, physicalHeight-lineOffset, (CGFloat) (0.5*physicalHeight));
         CGContextStrokePath(context);
     }
 
@@ -1112,8 +1112,8 @@ parentViewController:(UIViewController*)parentViewController
                             CGRectMake(
                                        RETICLE_OFFSET,
                                        RETICLE_OFFSET,
-                                       RETICLE_SIZE-2*RETICLE_OFFSET,
-                                       RETICLE_SIZE-2*RETICLE_OFFSET
+                                       physicalHeight-2*RETICLE_OFFSET,
+                                       physicalHeight-2*RETICLE_OFFSET
                                        )
                             );
     }
