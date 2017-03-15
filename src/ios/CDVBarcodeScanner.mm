@@ -1105,17 +1105,26 @@ parentViewController:(UIViewController*)parentViewController
     }
 
     if (self.processor.is2D) {
+		CGRect greenRect; 
+		
+		// greenRect = CGRectMake(
+							   // RETICLE_OFFSET,
+							   // RETICLE_OFFSET,
+							   // physicalHeight-2*RETICLE_OFFSET,
+							   // physicalHeight-2*RETICLE_OFFSET
+							   // );
+							   
+		greenRect = CGRectMake(
+							   RETICLE_OFFSET,
+							   RETICLE_OFFSET,
+							   physicalHeight,
+							   physicalHeight
+							   );
+
         UIColor* color = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:RETICLE_ALPHA];
         CGContextSetStrokeColorWithColor(context, color.CGColor);
         CGContextSetLineWidth(context, RETICLE_WIDTH);
-        CGContextStrokeRect(context,
-                            CGRectMake(
-                                       RETICLE_OFFSET,
-                                       RETICLE_OFFSET,
-                                       physicalHeight-2*RETICLE_OFFSET,
-                                       physicalHeight-2*RETICLE_OFFSET
-                                       )
-                            );
+        CGContextStrokeRect(context, greenRect);
     }
 
     result = UIGraphicsGetImageFromCurrentImageContext();
