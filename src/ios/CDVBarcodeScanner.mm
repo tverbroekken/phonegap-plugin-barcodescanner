@@ -1089,6 +1089,12 @@ parentViewController:(UIViewController*)parentViewController
 
 	CGFloat physicalWidth = screenRect.size.width;
 	CGFloat physicalHeight = screenRect.size.height;
+	
+	if (physicalWidth > physicalHeight) {
+		float tempHeight = physicalWidth;
+		physicalWidth = physicalHeight;
+		physicalHeight = tempHeight;
+	}
 
 	UIGraphicsBeginImageContext(CGSizeMake(physicalWidth, physicalHeight));
     CGContextRef context = UIGraphicsGetCurrentContext();
